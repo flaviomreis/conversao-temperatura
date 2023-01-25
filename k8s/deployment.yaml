@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deploy
+spec:
+  selector:
+    matchLabels:
+      app: webapp-deploy
+  template:
+    metadata:
+      labels:
+        app: webapp-deploy
+    spec:
+      containers:
+        - name: webapp-deploy
+          image: f18s/conversao-temperatura:v1
+          ports:
+            - containerPort: 8080
